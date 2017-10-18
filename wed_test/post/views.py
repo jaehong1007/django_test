@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from .models import Post
@@ -18,3 +19,12 @@ def post_detail(request, pk):
         'post': post,
     }
     return render(request, 'post/post_detail.html', context)
+
+
+def post_create(request):
+    if request.method == 'POST':
+        photo = request.FILES['up_photo']
+        post = Post.objects.create(photo=photo)
+        return HttpResponse('succeed')
+    else:
+        return render(request, 'post/post_create.html')
