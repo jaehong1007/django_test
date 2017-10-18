@@ -3,6 +3,10 @@
     <p>{{ post.title }}</p>
     <img src="{{ post.photo.url }}" alt="" width=100%, heigh=100%>
     <p>{{ post.content }}</p>
+     <form action="/post_delete/{{ post.pk }}/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Delete"/>
+    </form>
 </div>
 
 

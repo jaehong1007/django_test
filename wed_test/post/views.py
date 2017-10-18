@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Post
 
@@ -28,3 +28,10 @@ def post_create(request):
         return HttpResponse('succeed')
     else:
         return render(request, 'post/post_create.html')
+
+
+def post_delete(request, pk):
+    if request.method == 'POST':
+        post = Post.objects.get(pk=pk)
+        post.delete()
+    return redirect(post_list)

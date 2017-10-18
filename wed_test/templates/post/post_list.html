@@ -2,8 +2,12 @@
 
 {% block content %}
 {% for post in posts %}
-
+<p>{{ post.title }} </p>
 <img src="{{ post.photo.url }}"  alt="">
+ <form action="/post_delete/{{ post.pk }}/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Delete"/>
+    </form>
 
 {% endfor %}
-{% endblock %}
+{% endblock %}s
