@@ -19,7 +19,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 # Template 루트
-TEMPLATE_DIR = os.path.join(ROOT_DIR, 'templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
